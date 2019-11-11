@@ -1076,6 +1076,8 @@ pdgstrs(int_t n, LUstruct_t *LUstruct,
 #endif
     if ( !(x = (double*)SUPERLU_MALLOC((ldalsum * nrhs + nlb * XK_H) * sizeof(double))) )
 	ABORT("Calloc fails for x[].");
+    for ( ii=0; ii < ldalsum * nrhs + nlb * XK_H; ii++ )
+	x[ii]=zero;
 
 
     sizertemp=ldalsum * nrhs;
